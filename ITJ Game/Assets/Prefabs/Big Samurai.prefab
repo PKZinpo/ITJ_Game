@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2089568662248691007}
   - component: {fileID: 2089568662248691006}
   - component: {fileID: 2089568662248691005}
+  - component: {fileID: 8999936800905575521}
   m_Layer: 0
   m_Name: Big Samurai
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e73839fc564ea434eb1566d51bf85db4, type: 3}
+  m_Sprite: {fileID: 4744475657285117599, guid: 851cd6eb90c17174b83fd4d49db2765f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,11 +98,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8430f7c985b580b42968db4ca45fab93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenSlashPreFab: {fileID: 1494856030823823495, guid: 987e948dd17804249b40446acff9f96c, type: 3}
+  samuraiAnim: {fileID: 8999936800905575521}
   bottomLeft: {fileID: 2089568662992343015}
   topRight: {fileID: 2089568662742678377}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
+  offSet: {x: 0, y: -1, z: 0}
+--- !u!95 &8999936800905575521
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089568662248691004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e116a642090120e40a6f246ace8ff072, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2089568662742678376
 GameObject:
   m_ObjectHideFlags: 0

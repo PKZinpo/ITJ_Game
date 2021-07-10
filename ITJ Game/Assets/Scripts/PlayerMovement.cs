@@ -9,17 +9,22 @@ public class PlayerMovement : MonoBehaviour {
 
     public float movementSpeed;
     public float wallSlideSpeed;
+    public float crouchSpeed;
     public float jumpForce;
     public float xWallForce;
     public float yWallForce;
     public float wallJumpTime;
     public float checkRadius;
+
     public static bool isHiding = false;
 
     private bool isSliding = false;
     private bool isJumping = false;
     private bool isRunning = false;
     private bool isWallJumping = false;
+    private bool isFalling = false;
+    private bool isCrouching = false;
+    private bool isCrouchWalking = false;
     private bool isTouchingFront = false;
     private bool isGrounded = true;
     private bool lookingRight = true;
@@ -31,11 +36,30 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
-        if (!isHiding) {
+        if (!isHiding && !PauseMenu.isPaused && !BigSamurai.isTouching) {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
             // Getting movement input
             movement = Input.GetAxisRaw("Horizontal") * movementSpeed * Time.fixedDeltaTime;
+
+            // Character crouching movement speed
+            if (Input.GetKey(KeyCode.LeftControl)) {
+                isCrouching = true;
+                Debug.Log("CONTROL");
+            }
+            else {
+                if (isCrouching) {
+                    isCrouching = false;
+                }
+            }
+
+            if (isCrouching && movement != 0) {
+                isCrouchWalking = true;
+                movement *= crouchSpeed;
+            }
+            else {
+                isCrouchWalking = false;
+            }
 
             // Moving character
             rigidBody.velocity = new Vector2(movement, rigidBody.velocity.y);
@@ -90,13 +114,27 @@ public class PlayerMovement : MonoBehaviour {
                 rigidBody.velocity = new Vector2(-movement, yWallForce);
             }
 
+            // Hitting ground after jump
             if (rigidBody.velocity.y == 0) {
                 isJumping = false;
+            }
+
+            // Falling
+            if (!isJumping && !isWallJumping && rigidBody.velocity.y < -0.1f) {
+                isFalling = true;
+            }
+            else {
+                if (isFalling) {
+                    isFalling = false;
+                }
             }
 
             // Update animator
             playerAnim.SetBool("IsJumping", isJumping);
             playerAnim.SetBool("IsRunning", isRunning);
+            playerAnim.SetBool("IsFalling", isFalling);
+            playerAnim.SetBool("IsCrouching", isCrouching);
+            playerAnim.SetBool("IsCrouchWalking", isCrouchWalking);
         }
     }
 

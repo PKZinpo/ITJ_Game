@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour {
     public Animator playerAnim;
     public Transform frontCheck;
     public Transform groundCheck;
+    public Collider2D crouchCollider;
     public LayerMask whatIsGround;
 
     public float movementSpeed;
@@ -45,7 +46,6 @@ public class PlayerMovement : MonoBehaviour {
             // Character crouching movement speed
             if (Input.GetKey(KeyCode.LeftControl)) {
                 isCrouching = true;
-                Debug.Log("CONTROL");
             }
             else {
                 if (isCrouching) {
@@ -59,6 +59,13 @@ public class PlayerMovement : MonoBehaviour {
             }
             else {
                 isCrouchWalking = false;
+            }
+
+            if (isCrouching || isCrouchWalking) {
+                crouchCollider.enabled = false;
+            }
+            else {
+                crouchCollider.enabled = true;
             }
 
             // Moving character
@@ -90,7 +97,7 @@ public class PlayerMovement : MonoBehaviour {
             isTouchingFront = Physics2D.OverlapCircle(frontCheck.position, checkRadius, whatIsGround);
 
             // Slides on wall if touching and not on ground
-            if (isTouchingFront && !isGrounded && movement != 0) {
+            if (isTouchingFront && !isGrounded && movement != 0 && rigidBody.velocity.y < 0) {
                 playerAnim.SetTrigger("Slide");
                 isSliding = true;
             }

@@ -29,7 +29,7 @@ public class Hideable : MonoBehaviour {
                     var color = player.GetComponent<SpriteRenderer>().color;
                     color.a = 0;
                     player.GetComponent<SpriteRenderer>().color = color;
-                    player.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
+                    player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 }
                 else {
                     var color = player.GetComponent<SpriteRenderer>().color;

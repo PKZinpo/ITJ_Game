@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
-        if (!isHiding && !PauseMenu.isPaused && !BigSamurai.isTouching) {
+        if (!isHiding && !PauseMenu.isPaused && !BigSamurai.isTouching && !DialogueManager.isOpen) {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
             // Getting movement input
@@ -137,6 +137,19 @@ public class PlayerMovement : MonoBehaviour {
             }
 
             // Update animator
+            playerAnim.SetBool("IsJumping", isJumping);
+            playerAnim.SetBool("IsRunning", isRunning);
+            playerAnim.SetBool("IsFalling", isFalling);
+            playerAnim.SetBool("IsCrouching", isCrouching);
+            playerAnim.SetBool("IsCrouchWalking", isCrouchWalking);
+        }
+        else {
+            isRunning = false;
+            isJumping = false;
+            isCrouching = false;
+            isCrouchWalking = false;
+            isFalling = false;
+
             playerAnim.SetBool("IsJumping", isJumping);
             playerAnim.SetBool("IsRunning", isRunning);
             playerAnim.SetBool("IsFalling", isFalling);

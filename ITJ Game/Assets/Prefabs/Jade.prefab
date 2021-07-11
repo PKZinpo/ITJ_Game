@@ -84,6 +84,8 @@ GameObject:
   - component: {fileID: 5843793958688401884}
   - component: {fileID: 5843793958688401882}
   - component: {fileID: 4195026818286583030}
+  - component: {fileID: 2886574612204198745}
+  - component: {fileID: 5615041260090781613}
   m_Layer: 6
   m_Name: Jade
   m_TagString: Untagged
@@ -182,9 +184,40 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.00053170323, y: -0.06291417}
   serializedVersion: 2
   m_Radius: 0.052137442
+--- !u!114 &2886574612204198745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5843793958688401885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba808161e69b6474e965d474650ba395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  jadeCollider: {fileID: 4195026818286583030}
+--- !u!114 &5615041260090781613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5843793958688401885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb6a0e9591651b4ea997cc41f41abc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences:
+    - what do you think you are doing?
+    - ...

@@ -9,15 +9,19 @@ public class SceneLoader : MonoBehaviour {
     public string nextLevel;
 
     private static Animator fW;
+    private static Animator fB;
     private static bool whiteFade = false;
 
     void Start() {
         fW = fadeWhite;
+        fB = fadeBlack;
+        if (!whiteFade) {
+            fadeBlack.SetBool("FadeWhite", false);
+        }
     }
 
     void Update() {
         fadeWhite.SetBool("WhiteFade", whiteFade);
-        //fadeBlack.SetBool("FadeWhite", whiteFade);
     }
     public static void DoWhiteFade() {
         fW.SetTrigger("Start");
@@ -27,9 +31,10 @@ public class SceneLoader : MonoBehaviour {
         fW.SetTrigger("StartOne");
         whiteFade = true;
     }
-    public void LoadLevel(string levelName) {
-        fadeBlack.SetTrigger("Start");
+    public static void LoadLevel(string levelName) {
+        fB.SetTrigger("Start");
         SceneManager.LoadScene(levelName);
+        DialogueManager.isOpen = false;
     }
     public void ResetWhiteFade() {
         whiteFade = false;

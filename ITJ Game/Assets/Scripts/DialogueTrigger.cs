@@ -22,7 +22,4 @@ public class DialogueTrigger : MonoBehaviour {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
     }
-    public static bool GetJadeLvlOne() {
-        return lvlOneJade;
-    }
 }

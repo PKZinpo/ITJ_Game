@@ -73,8 +73,13 @@ public class DialogueManager : MonoBehaviour {
                 Invoke("WhiteSlash", 2f);
             }
         }
+        else if (scene.name == "Level2") {
+            if (!FindObjectOfType<Jade>().GetComponent<CircleCollider2D>().enabled) {
+                isOpen = true;
+                SceneLoader.LoadLevel("Level3");
+            }
+        }
     }
-
     public void WhiteSlash() {
         slash.SetTrigger("Slash");
     }

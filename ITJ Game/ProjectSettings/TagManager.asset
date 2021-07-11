@@ -42,14 +42,26 @@ TagManager:
   - name: Collisions
     uniqueID: 3961322859
     locked: 0
+  - name: Outside Background
+    uniqueID: 3222520617
+    locked: 0
+  - name: Attic Background
+    uniqueID: 3900971633
+    locked: 0
   - name: Background
     uniqueID: 2163436085
+    locked: 0
+  - name: Windows
+    uniqueID: 3897113271
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Player
     uniqueID: 1113778627
+    locked: 0
+  - name: Outside Walls
+    uniqueID: 1020791661
     locked: 0
   - name: Text
     uniqueID: 2860057039

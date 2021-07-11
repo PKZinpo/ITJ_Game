@@ -105,7 +105,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
-  offSet: {x: 0, y: -1, z: 0}
+  offSet: {x: 0, y: -0.5, z: 0}
 --- !u!95 &8999936800905575521
 Animator:
   serializedVersion: 3

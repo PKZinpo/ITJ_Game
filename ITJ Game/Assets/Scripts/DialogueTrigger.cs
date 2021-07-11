@@ -14,7 +14,7 @@ public class DialogueTrigger : MonoBehaviour {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             lvlOneIsActivated = true;
         }
-        else if (!lvlOneJade) {
+        else if (!lvlOneJade && gameObject.name == "Jade") {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             lvlOneJade = true;
         }

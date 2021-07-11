@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour {
 
+    public Text nameText;
     public Text dialogueText;
     public Text continueText;
     public Animator boxAnim;
@@ -12,9 +14,11 @@ public class DialogueManager : MonoBehaviour {
     public GameObject player;
     public static bool isOpen = false;
 
+    private Queue<string> names;
     private Queue<string> sentences;
 
     void Start() {
+        names = new Queue<string>();
         sentences = new Queue<string>();
     }
 
@@ -28,10 +32,14 @@ public class DialogueManager : MonoBehaviour {
     public void StartDialogue(Dialogue dialogue) {
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         isOpen = true;
+        names.Clear();
         sentences.Clear();
         boxAnim.SetBool("IsOpen", isOpen);
         foreach (string sentence in dialogue.sentences) {
             sentences.Enqueue(sentence);
+        }
+        foreach (string dialogueName in dialogue.name) {
+            names.Enqueue(dialogueName);
         }
         NextSentence();
     }
@@ -42,6 +50,8 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
         string sentence = sentences.Dequeue();
+        string name = names.Dequeue();
+        nameText.text = name;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
@@ -56,12 +66,16 @@ public class DialogueManager : MonoBehaviour {
     public void EndDialogue() {
         isOpen = false;
         boxAnim.SetBool("IsOpen", isOpen);
-        if (!FindObjectOfType<Jade>().GetComponent<CircleCollider2D>().enabled) {
-            isOpen = true;
-            slash.SetTrigger("Slash");
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "Level1") {
+            if (!FindObjectOfType<Jade>().GetComponent<CircleCollider2D>().enabled) {
+                isOpen = true;
+                Invoke("WhiteSlash", 2f);
+            }
         }
     }
-    public void WhiteFadeLevelOne() {
-        SceneLoader.DoWhiteFade();
+
+    public void WhiteSlash() {
+        slash.SetTrigger("Slash");
     }
 }

@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 7025303022116063825}
   - component: {fileID: 7025303022116063826}
   - component: {fileID: 7025303022116063839}
+  - component: {fileID: 6944620036843866478}
   m_Layer: 0
   m_Name: WhiteFade
   m_TagString: Untagged
@@ -195,6 +196,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6944620036843866478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025303022116063828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c700cbdd0697ac4c8b50c675329398a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeWhite: {fileID: 7025303022116063839}
+  fadeBlack: {fileID: 5913171718474660658}
 --- !u!1 &7025303022275737619
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +294,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7025303023807679280}
-  - component: {fileID: 1003034359140313358}
   m_Layer: 0
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -303,20 +317,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1003034359140313358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7025303023807679281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c700cbdd0697ac4c8b50c675329398a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeWhite: {fileID: 7025303022116063839}
-  fadeBlack: {fileID: 5913171718474660658}
 --- !u!1 &7408674569929511109
 GameObject:
   m_ObjectHideFlags: 0

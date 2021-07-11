@@ -6,6 +6,7 @@ public class SceneLoader : MonoBehaviour {
 
     public Animator fadeWhite;
     public Animator fadeBlack;
+    public string nextLevel;
 
     private static Animator fW;
     private static bool whiteFade = false;
@@ -16,10 +17,14 @@ public class SceneLoader : MonoBehaviour {
 
     void Update() {
         fadeWhite.SetBool("WhiteFade", whiteFade);
-        fadeBlack.SetBool("FadeWhite", whiteFade);
+        //fadeBlack.SetBool("FadeWhite", whiteFade);
     }
     public static void DoWhiteFade() {
         fW.SetTrigger("Start");
+        whiteFade = true;
+    }
+    public static void DoWhiteFadeLevelOne() {
+        fW.SetTrigger("StartOne");
         whiteFade = true;
     }
     public void LoadLevel(string levelName) {
@@ -31,5 +36,9 @@ public class SceneLoader : MonoBehaviour {
     }
     public void ResetScene() {
         GameManager.ResetLevel();
+    }
+    public void ToNextLevel() {
+        SceneManager.LoadScene(nextLevel);
+        DialogueManager.isOpen = false;
     }
 }

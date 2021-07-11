@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -31,9 +32,13 @@ public class PlayerMovement : MonoBehaviour {
     private bool lookingRight = true;
     private float movement = 0f;
     private Rigidbody2D rigidBody;
+    private ShadowCaster2D playerShadow;
+    private ShadowCaster2D playercrouchShadow;
 
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
+        playerShadow = GetComponent<ShadowCaster2D>();
+        playercrouchShadow = transform.GetChild(2).GetComponent<ShadowCaster2D>();
     }
 
     void Update() {
@@ -46,10 +51,14 @@ public class PlayerMovement : MonoBehaviour {
             // Character crouching movement speed
             if (Input.GetKey(KeyCode.LeftControl)) {
                 isCrouching = true;
+                playerShadow.enabled = false;
+                playercrouchShadow.enabled = true;
             }
             else {
                 if (isCrouching) {
                     isCrouching = false;
+                    playerShadow.enabled = true;
+                    playercrouchShadow.enabled = false;
                 }
             }
 

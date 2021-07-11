@@ -20,6 +20,7 @@ public class SceneLoader : MonoBehaviour {
         }
     }
 
+
     void Update() {
         fadeWhite.SetBool("WhiteFade", whiteFade);
     }

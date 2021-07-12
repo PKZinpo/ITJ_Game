@@ -51,6 +51,9 @@ TagManager:
   - name: Background
     uniqueID: 2163436085
     locked: 0
+  - name: Water
+    uniqueID: 1138714713
+    locked: 0
   - name: Windows
     uniqueID: 3897113271
     locked: 0
@@ -59,6 +62,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1113778627
+    locked: 0
+  - name: Roof
+    uniqueID: 2805397073
     locked: 0
   - name: Outside Walls
     uniqueID: 1020791661

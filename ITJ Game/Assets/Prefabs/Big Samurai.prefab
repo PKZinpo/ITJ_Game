@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2089568662248691006}
   - component: {fileID: 2089568662248691005}
   - component: {fileID: 8999936800905575521}
+  - component: {fileID: 6484562844959904651}
   m_Layer: 0
   m_Name: Big Samurai
   m_TagString: Untagged
@@ -125,6 +126,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6484562844959904651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089568662248691004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 6bfd1cec356af38000000000c3e96242cf0179aa85074193
+  m_ShapePath:
+  - {x: 0.22100699, y: 0.4054547, z: 0}
+  - {x: 0.029305622, y: 0.47253692, z: 0}
+  - {x: -0.14389525, y: 0.34974325, z: 0}
+  m_ShapePathHash: -1566310872
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 67002
 --- !u!1 &2089568662742678376
 GameObject:
   m_ObjectHideFlags: 0

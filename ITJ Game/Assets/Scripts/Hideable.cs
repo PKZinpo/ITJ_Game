@@ -23,18 +23,20 @@ public class Hideable : MonoBehaviour {
                 ShowFloatingText();
                 showText = true;
             }
-            if (Input.GetKeyDown(KeyCode.E)) {
-                PlayerMovement.isHiding = !PlayerMovement.isHiding;
-                if (PlayerMovement.isHiding) {
-                    var color = player.GetComponent<SpriteRenderer>().color;
-                    color.a = 0;
-                    player.GetComponent<SpriteRenderer>().color = color;
-                    player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                }
-                else {
-                    var color = player.GetComponent<SpriteRenderer>().color;
-                    color.a = 1;
-                    player.GetComponent<SpriteRenderer>().color = color;
+            if (Watcher.allowMoving) {
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    PlayerMovement.isHiding = !PlayerMovement.isHiding;
+                    if (PlayerMovement.isHiding) {
+                        var color = player.GetComponent<SpriteRenderer>().color;
+                        color.a = 0;
+                        player.GetComponent<SpriteRenderer>().color = color;
+                        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    }
+                    else {
+                        var color = player.GetComponent<SpriteRenderer>().color;
+                        color.a = 1;
+                        player.GetComponent<SpriteRenderer>().color = color;
+                    }
                 }
             }
         }

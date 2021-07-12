@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 3676100127582415416
     second: Hide-ables_0
+  - first:
+      213: -5760359155661404062
+    second: Hide-ables_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,6 +125,27 @@ TextureImporter:
       bones: []
       spriteID: 83a6157d691240330800000000000000
       internalID: 3676100127582415416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hide-ables_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 0
+        width: 32
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268022c1ed71f00b0800000000000000
+      internalID: -5760359155661404062
       vertices: []
       indices: 
       edges: []

@@ -9,9 +9,9 @@ public class Watcher : MonoBehaviour {
     public Animator watcherAnim;
     public float watcherSpeed;
     public float waitTime;
+    public bool toRight = false;
 
     private bool isMoving = false;
-    private bool toRight = false;
     private bool idle = true;
 
     void Update() {

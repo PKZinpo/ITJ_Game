@@ -12,7 +12,7 @@ public class Watcher : MonoBehaviour {
     public static bool allowMoving = true;
 
     private bool isMoving = false;
-
+    
     void Update() {
         if (allowMoving) {
             if (!isMoving) {

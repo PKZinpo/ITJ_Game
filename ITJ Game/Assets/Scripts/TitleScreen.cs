@@ -11,6 +11,14 @@ public class TitleScreen : MonoBehaviour {
         SceneLoader.LoadLevel("Level1");
     }
 
+    void Update() {
+        if (GameObject.FindGameObjectsWithTag("Audio").Length != 0) {
+            foreach (var item in GameObject.FindGameObjectsWithTag("Audio")) {
+                Destroy(item);
+            }
+        }
+    }
+
     public void QuitGame() {
         Application.Quit();
     }

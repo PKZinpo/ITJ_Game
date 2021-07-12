@@ -6,13 +6,21 @@ public class LightTrigger : MonoBehaviour {
     public GameObject player;
 
     private Collider2D playerCollider;
+    [SerializeField]private AudioManager audioManager;
 
     void Start() {
         playerCollider = player.GetComponent<BoxCollider2D>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update() {
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (!PlayerMovement.isHiding) {
+            audioManager.Play("Alarm");
+        }
     }
 
     void OnTriggerStay2D(Collider2D collision) {
@@ -35,7 +43,6 @@ public class LightTrigger : MonoBehaviour {
             }
         }        
     }
-
     public void RestartLevel() {
         GameManager.ResetLevel();
     }

@@ -72,7 +72,7 @@ public class KeyPresses : MonoBehaviour {
 
     public void FadeKeysIn() {
         fadeKeysIn = true;
-        Invoke("FadeKeysOut", 3f);
+        Invoke("FadeKeysOut", 4f);
     }
     public void FadeKeysOut() {
         fadeKeysOut = true;

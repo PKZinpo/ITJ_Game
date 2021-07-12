@@ -43,8 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf7d8442b301854eb620f65c4b2de31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
   dialogueText: {fileID: 0}
   continueText: {fileID: 0}
   boxAnim: {fileID: 0}
   slash: {fileID: 0}
   player: {fileID: 0}
+  audioManager: {fileID: 0}

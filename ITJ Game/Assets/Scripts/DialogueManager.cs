@@ -12,14 +12,17 @@ public class DialogueManager : MonoBehaviour {
     public Animator boxAnim;
     public Animator slash;
     public GameObject player;
+    
     public static bool isOpen = false;
 
     private Queue<string> names;
     private Queue<string> sentences;
+    private AudioManager audioManager;
 
     void Start() {
         names = new Queue<string>();
         sentences = new Queue<string>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update() {
@@ -88,5 +91,6 @@ public class DialogueManager : MonoBehaviour {
     }
     public void WhiteSlash() {
         slash.SetTrigger("Slash");
+        audioManager.Play("Slash");
     }
 }

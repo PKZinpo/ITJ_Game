@@ -5,8 +5,6 @@ public class LevelThreeInitial : MonoBehaviour {
     public Collider2D colliderInitial;
     public GameObject player;
 
-    
-
     void Start() {
         if (SceneLoader.resetVal == 0) {
             Invoke("StartDialogue", 1f);

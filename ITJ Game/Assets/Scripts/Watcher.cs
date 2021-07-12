@@ -6,20 +6,16 @@ public class Watcher : MonoBehaviour {
 
     public Transform leftWaypoint;
     public Transform rightWaypoint;
-    public Animator watcherAnim;
     public float watcherSpeed;
     public float waitTime;
     public bool toRight = false;
 
     private bool isMoving = false;
-    private bool idle = true;
 
     void Update() {
-        watcherAnim.SetBool("IsMoving", idle);
         if (!isMoving) {
             StartCoroutine(WatcherMove());
             isMoving = true;
-            idle = true;
         }
     }
 
@@ -38,7 +34,6 @@ public class Watcher : MonoBehaviour {
                 yield return null;
             }
         }
-        idle = false;
         yield return new WaitForSeconds(waitTime);
         isMoving = false;
         toRight = !toRight;

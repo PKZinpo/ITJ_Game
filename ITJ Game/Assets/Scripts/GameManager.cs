@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1f;
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
+        SceneLoader.resetVal++;
+        Watcher.allowMoving = true;
     }
 
 }

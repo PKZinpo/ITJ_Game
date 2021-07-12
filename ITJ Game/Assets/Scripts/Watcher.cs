@@ -9,13 +9,19 @@ public class Watcher : MonoBehaviour {
     public float watcherSpeed;
     public float waitTime;
     public bool toRight = false;
+    public static bool allowMoving = true;
 
     private bool isMoving = false;
 
     void Update() {
-        if (!isMoving) {
-            StartCoroutine(WatcherMove());
-            isMoving = true;
+        if (allowMoving) {
+            if (!isMoving) {
+                StartCoroutine(WatcherMove());
+                isMoving = true;
+            }
+        }
+        else {
+            StopAllCoroutines();
         }
     }
 

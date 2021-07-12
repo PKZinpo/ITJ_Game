@@ -5,10 +5,11 @@ public class DialogueTrigger : MonoBehaviour {
 
     public Dialogue dialogue;
 
-    private static bool lvlOneIsActivated = true;
-    private static bool lvlOneJade = true;
-    private static bool lvlTwoIsActivated = false;
-    private static bool lvlThreeIsActivated = false;
+    public static bool lvlOneIsActivated = false;
+    public static bool lvlOneJade = false;
+    public static bool lvlTwoIsActivated = false;
+    public static bool lvlThreeIsActivated = false;
+    public static bool final = true;
 
     public void OnTriggerEnter2D(Collider2D collision) {
         Scene scene = SceneManager.GetActiveScene();
@@ -27,6 +28,13 @@ public class DialogueTrigger : MonoBehaviour {
         else if (scene.name == "Level2" && !lvlTwoIsActivated) {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             lvlTwoIsActivated = true;
+        }
+        else if (scene.name == "Level3" && gameObject.name == "Jade" && !final) {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            final = true;
+        }
+        else if (scene.name != "Level1") {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
     }
 }

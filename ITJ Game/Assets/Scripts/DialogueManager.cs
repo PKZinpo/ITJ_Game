@@ -76,7 +76,13 @@ public class DialogueManager : MonoBehaviour {
         else if (scene.name == "Level2") {
             if (!FindObjectOfType<Jade>().GetComponent<CircleCollider2D>().enabled) {
                 isOpen = true;
+                SceneLoader.resetVal = 0;
                 SceneLoader.LoadLevel("Level3");
+            }
+        }
+        else if (DialogueTrigger.final) {
+            if (!FindObjectOfType<Jade>().GetComponent<CircleCollider2D>().enabled) {
+                SceneLoader.LoadLevel("End");
             }
         }
     }

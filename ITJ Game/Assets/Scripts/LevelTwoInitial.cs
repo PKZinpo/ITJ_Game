@@ -6,7 +6,9 @@ public class LevelTwoInitial : MonoBehaviour {
     public GameObject player;
 
     void Start() {
-        Invoke("StartDialogue", 1f);
+        if (SceneLoader.resetVal == 0) {
+            Invoke("StartDialogue", 1f);
+        }
     }
     public void StartDialogue() {
         colliderInitial.enabled = true;

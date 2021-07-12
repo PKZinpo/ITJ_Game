@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
-        if (!isHiding && !PauseMenu.isPaused && !BigSamurai.isTouching && !DialogueManager.isOpen) {
+        if (!isHiding && !PauseMenu.isPaused && !BigSamurai.isTouching && !DialogueManager.isOpen && Watcher.allowMoving) {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
             // Getting movement input
